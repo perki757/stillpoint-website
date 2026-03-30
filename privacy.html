@@ -93,7 +93,7 @@
 
 <div class="content">
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: 20 March 2026</p>
+    <p class="last-updated">Last updated: 30 March 2026</p>
 
     <p>Stillpoint is built with privacy at its core. This policy explains what data we collect, how we use it, and the choices you have.</p>
 
@@ -135,10 +135,23 @@
     </ul>
 
     <h2>Analytics</h2>
-    <p>Stillpoint does not currently collect any analytics data. If we add analytics in the future, we will use a privacy-first provider that does not collect personal data, does not use cookies, and does not track individual users. This policy will be updated to reflect any changes.</p>
+    <p>Stillpoint uses Firebase Analytics and Firebase Crashlytics to understand how the app is used and to identify crashes. This data is anonymous and not linked to your identity. It includes:</p>
+    <ul>
+        <li>App launches, session completions, and feature usage (anonymous, aggregate)</li>
+        <li>Crash reports and performance data (anonymous)</li>
+        <li>Device type and OS version (not linked to you)</li>
+    </ul>
+    <p>Firebase Analytics uses a device identifier for aggregate reporting. This identifier is not linked to your personal data or journal entries. No advertising identifiers (IDFA) are collected. See <a href="https://firebase.google.com/support/privacy">Firebase's privacy documentation</a>.</p>
 
-    <h2>Community Access</h2>
-    <p>Stillpoint offers a "Community Access" option for users who select "I can't pay right now" during onboarding or in Settings. This grants 60 days of free premium access. The access expiry date is stored locally on your device in UserDefaults and is not sent to any server.</p>
+    <h2>Bursary (Community Access)</h2>
+    <p>Stillpoint offers a bursary for users who cannot afford a subscription. When you apply for a bursary, we collect:</p>
+    <ul>
+        <li>Your email address (for bursary confirmation)</li>
+        <li>A short reflection on why a daily practice matters to you</li>
+        <li>Your intended usage frequency</li>
+        <li>Optional marketing consent</li>
+    </ul>
+    <p>This data is sent to our Firebase server and forwarded to our team. Your email will only be used for bursary-related communication (and marketing updates if you opt in). The bursary grants 60 days of full premium access. The access expiry date is also stored locally on your device.</p>
 
     <h2>Subscriptions</h2>
     <p>Stillpoint offers three monthly subscription tiers, all handled entirely by Apple through StoreKit and the App Store:</p>
@@ -157,16 +170,17 @@
 
     <h2>Your rights under GDPR</h2>
     <p>If you are located in the European Economic Area or the United Kingdom, you have the right to access, correct, delete, or export your personal data. Since your data is stored locally on your device, you can exercise these rights directly using the Export and Delete features in the app's Settings.</p>
-    <p>If you have any questions or wish to exercise your rights, contact us at <a href="mailto:support@stillpoint.tools">support@stillpoint.tools</a>. We will respond within 30 days.</p>
+    <p>If you have any questions or wish to exercise your rights, contact us at <a href="mailto:hello@stillpoint.tools">hello@stillpoint.tools</a>. We will respond within 30 days.</p>
 
     <h2>Data controller</h2>
-    <p>The data controller for Stillpoint is Will Perkins, operating as a sole trader based in England. For data protection enquiries, contact <a href="mailto:support@stillpoint.tools">support@stillpoint.tools</a>.</p>
+    <p>The data controller for Stillpoint is Will Perkins, operating as a sole trader based in England. For data protection enquiries, contact <a href="mailto:hello@stillpoint.tools">hello@stillpoint.tools</a>.</p>
 
     <h2>Third-party data processors</h2>
     <p>When you use premium AI affirmations, your session data is processed by:</p>
     <ul>
         <li><strong>Google Cloud (Firebase Cloud Functions)</strong> — routes requests between the app and the AI provider. Does not log or store user data.</li>
         <li><strong>Anthropic</strong> — provides the Claude AI model used to generate affirmations. Anthropic does not store API inputs or outputs by default and does not use them for model training. See <a href="https://www.anthropic.com/privacy">Anthropic's privacy policy</a>.</li>
+        <li><strong>Google (Firebase Analytics &amp; Crashlytics)</strong> — collects anonymous usage and crash data. Does not receive your journal entries or personal data. See <a href="https://firebase.google.com/support/privacy">Firebase privacy documentation</a>.</li>
     </ul>
     <p>No other third parties receive your personal data.</p>
 
@@ -174,7 +188,7 @@
     <p>We may update this policy from time to time. Changes will be posted on this page with an updated date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
 
     <h2>Contact</h2>
-    <p>If you have questions about this privacy policy, contact us at <a href="mailto:support@stillpoint.tools">support@stillpoint.tools</a>.</p>
+    <p>If you have questions about this privacy policy, contact us at <a href="mailto:hello@stillpoint.tools">hello@stillpoint.tools</a>.</p>
 </div>
 
 <footer>

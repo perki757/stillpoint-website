@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stillpoint — Find your stillpoint</title>
-    <meta name="description" content="A daily gratitude and reflection app with AI-powered affirmations and gentle screen lock. Available on iOS.">
+    <title>Stillpoint — Daily gratitude. Gentle growth.</title>
+    <meta name="description" content="A daily gratitude practice with a living companion and AI reflections that remember your week. Three minutes of presence. Priced so everyone can access it.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
             --warm-bg: #FAF6F1;
-            --dark-bg: #1C1917;
+            --warm-surface: #F3EDE6;
+            --dark-bg: #1A1A20;
             --gold: #C4956A;
             --gold-light: #D4A97A;
-            --text-dark: #2C2C2E;
-            --text-muted: #6B6B6F;
+            --text-dark: #3A3632;
+            --text-muted: #8A8078;
             --text-light: rgba(255, 255, 255, 0.85);
             --radius: 24px;
         }
@@ -84,38 +85,56 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(ellipse at center, rgba(196, 149, 106, 0.08) 0%, transparent 60%);
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(ellipse at center, rgba(196, 149, 106, 0.1) 0%, transparent 70%);
             pointer-events: none;
         }
 
-        .hero-badge {
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 2rem;
+        /* Breathing egg animation */
+        .hero-egg {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 3rem;
+            animation: breathe 4s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-egg img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 700;
-            line-height: 1.1;
+            line-height: 1.15;
             letter-spacing: -0.03em;
-            margin-bottom: 1.5rem;
-            max-width: 700px;
+            margin-bottom: 1.25rem;
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
         }
 
-        .hero p {
-            font-size: 1.2rem;
+        .hero .tagline {
+            font-size: 1.15rem;
+            font-weight: 300;
             color: var(--text-light);
-            max-width: 520px;
+            max-width: 480px;
             margin-bottom: 3rem;
             line-height: 1.8;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-cta {
@@ -128,6 +147,8 @@
             font-weight: 700;
             font-size: 1rem;
             transition: transform 0.2s, background 0.2s;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-cta:hover {
@@ -135,10 +156,16 @@
             background: var(--gold-light);
         }
 
-        /* SECTIONS */
-        section {
-            padding: 6rem 2rem;
+        .hero-scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.1em;
         }
+
+        /* SECTIONS */
+        section { padding: 6rem 2rem; }
 
         .container {
             max-width: 900px;
@@ -158,54 +185,86 @@
             font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 700;
             letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             line-height: 1.2;
         }
 
         .section-text {
             font-size: 1.05rem;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 560px;
             line-height: 1.8;
         }
 
-        /* HOW IT WORKS */
-        .how-it-works {
-            background: var(--warm-bg);
+        /* CREATURES */
+        .creatures-section {
+            background: white;
+            text-align: center;
         }
+
+        .creatures-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .creature-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .creature-card img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .creature-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .creature-card .name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .creature-card .element {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* HOW IT WORKS */
+        .how-it-works { background: var(--warm-bg); }
 
         .steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
         }
 
         .step {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
+            text-align: center;
+            padding: 2rem 1.5rem;
         }
 
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--gold);
-            color: white;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 1.25rem;
+        .step-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
         }
 
         .step h3 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
         }
 
         .step p {
@@ -214,45 +273,38 @@
             line-height: 1.7;
         }
 
-        /* COMPANION TEASER */
-        .companion-section {
-            background: white;
+        /* QUOTE / HEART */
+        .heart-section {
+            background: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
         }
 
-        .companion-details {
-            margin-top: 2.5rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .heart-section blockquote {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+            color: var(--text-light);
         }
 
-        .companion-detail {
-            padding: 2rem;
-            border-radius: 20px;
-            background: var(--warm-bg);
-        }
-
-        .companion-detail h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .companion-detail p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.7;
+        .heart-section .attribution {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-style: normal;
         }
 
         /* FEATURES */
-        .features {
-            background: var(--warm-bg);
-        }
+        .features { background: var(--warm-bg); }
 
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             margin-top: 3rem;
         }
 
@@ -263,38 +315,37 @@
         }
 
         .feature h3 {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .feature p {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--text-muted);
             line-height: 1.7;
         }
 
         /* PRICING */
-        .pricing-section {
-            background: var(--warm-bg);
-        }
+        .pricing-section { background: white; }
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
             margin-top: 3rem;
         }
 
         .pricing-card {
-            padding: 2.5rem 2rem;
+            padding: 2.5rem 1.5rem;
             border-radius: 20px;
-            background: white;
+            background: var(--warm-bg);
             text-align: center;
         }
 
         .pricing-card.highlighted {
             border: 2px solid var(--gold);
+            background: white;
         }
 
         .pricing-tier {
@@ -310,66 +361,46 @@
             font-size: 2.25rem;
             font-weight: 700;
             color: var(--text-dark);
-            letter-spacing: -0.02em;
         }
 
         .pricing-period {
             font-size: 0.9rem;
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .pricing-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            line-height: 1.7;
         }
 
         .pricing-note {
             margin-top: 2.5rem;
             padding: 1.5rem 2rem;
             border-radius: 16px;
-            background: white;
+            background: var(--warm-bg);
             font-size: 0.95rem;
             color: var(--text-muted);
-            line-height: 1.7;
             text-align: center;
         }
 
-        /* PRIVACY */
-        .privacy-section {
-            background: var(--dark-bg);
-            color: white;
+        .pricing-note strong {
+            color: var(--text-dark);
         }
 
-        .privacy-section .section-text {
-            color: var(--text-light);
+        /* BUILT BY */
+        .built-by {
+            background: var(--warm-bg);
+            text-align: center;
+            padding: 4rem 2rem;
         }
 
-        .privacy-points {
-            margin-top: 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .privacy-point {
-            padding: 1.5rem;
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .privacy-point h3 {
+        .built-by p {
             font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 0.4rem;
-        }
-
-        .privacy-point p {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.6;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.8;
         }
 
         /* FOOTER */
@@ -379,7 +410,6 @@
             text-align: center;
             padding: 3rem 2rem;
             font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         footer a {
@@ -390,7 +420,6 @@
         }
 
         footer a:hover { color: var(--gold); }
-
         .footer-links { margin-bottom: 1rem; }
 
         /* RESPONSIVE */
@@ -398,7 +427,9 @@
             nav { padding: 1rem 1.25rem; }
             .nav-links a { margin-left: 1rem; font-size: 0.8rem; }
             section { padding: 4rem 1.5rem; }
-            .step { padding: 2rem 1.5rem; }
+            .hero-egg { width: 120px; height: 120px; }
+            .creatures-grid { gap: 1.5rem; }
+            .creature-card img { width: 100px; height: 100px; }
         }
     </style>
 </head>
@@ -407,118 +438,133 @@
 <nav>
     <a href="/" class="nav-brand">Stillpoint</a>
     <div class="nav-links">
-        <a href="#how-it-works">How it works</a>
+        <a href="#companions">Companions</a>
         <a href="#pricing">Pricing</a>
-        <a href="#privacy">Privacy</a>
-        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/privacy.html">Privacy</a>
     </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-    <div class="hero-badge">Coming soon to iOS</div>
-    <h1>Find your stillpoint</h1>
-    <p>A daily gratitude practice with AI-powered affirmations that actually know you. Three minutes of presence before the noise begins. Priced so everyone can access it.</p>
-    <a href="#how-it-works" class="hero-cta">Learn more</a>
+    <div class="hero-egg">
+        <img src="/images/phoenix-egg.png" alt="Stillpoint companion egg">
+    </div>
+    <h1>Daily gratitude.<br>Gentle growth.</h1>
+    <p class="tagline">Your practice has a companion now.<br>Pause. Notice. Feel a shift.</p>
+    <a href="#companions" class="hero-cta">Meet your companion</a>
+    <div class="hero-scroll-hint">scroll</div>
 </section>
 
+<!-- CREATURES -->
+<section class="creatures-section" id="companions">
+    <div class="container">
+        <div class="section-label">Your companion</div>
+        <h2 class="section-title">Born from your element</h2>
+        <p class="section-text" style="margin: 0 auto;">Four companions, each reflecting a different energy. Yours hatches after your first session and grows as your practice deepens.</p>
+
+        <div class="creatures-grid">
+            <div class="creature-card">
+                <img src="/images/phoenix-hatchling.png" alt="Phoenix companion">
+                <span class="name">Phoenix</span>
+                <span class="element">Fire</span>
+            </div>
+            <div class="creature-card">
+                <img src="/images/bear-hatchling.png" alt="Bear companion">
+                <span class="name">Bear</span>
+                <span class="element">Earth</span>
+            </div>
+            <div class="creature-card">
+                <img src="/images/koi-hatchling.png" alt="Koi companion">
+                <span class="name">Koi</span>
+                <span class="element">Water</span>
+            </div>
+            <div class="creature-card">
+                <img src="/images/owl-hatchling.png" alt="Owl companion">
+                <span class="name">Owl</span>
+                <span class="element">Air</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
 <section class="how-it-works" id="how-it-works">
     <div class="container">
         <div class="section-label">How it works</div>
-        <h2 class="section-title">A practice, not an app</h2>
-        <p class="section-text">Stillpoint creates a moment of calm in your day. At your chosen time, your phone gently pauses and invites you to reflect.</p>
+        <h2 class="section-title">Three minutes of presence</h2>
+        <p class="section-text">Not another productivity app. A quiet ritual that meets you where you are.</p>
 
         <div class="steps">
             <div class="step">
-                <div class="step-number">1</div>
-                <h3>Pause</h3>
-                <p>At your chosen daily time, Stillpoint gently shields your other apps, creating space for reflection.</p>
+                <span class="step-icon">1</span>
+                <h3>Arrive</h3>
+                <p>Check in with how you're feeling. A breathing pause settles you in.</p>
             </div>
             <div class="step">
-                <div class="step-number">2</div>
+                <span class="step-icon">2</span>
                 <h3>Reflect</h3>
-                <p>Note what you're grateful for and what you've achieved. One screen, one thought at a time.</p>
+                <p>What are you grateful for? What did you achieve? One thought at a time.</p>
             </div>
             <div class="step">
-                <div class="step-number">3</div>
+                <span class="step-icon">3</span>
                 <h3>Receive</h3>
-                <p>An AI-crafted affirmation built from your words, your patterns, and your growth over time.</p>
+                <p>An AI reflection written from your own words. Not a quote. A mirror.</p>
             </div>
             <div class="step">
-                <div class="step-number">4</div>
+                <span class="step-icon">4</span>
                 <h3>Return</h3>
-                <p>Your phone unlocks. Three minutes of presence, and you carry that stillness into your day.</p>
+                <p>Three minutes. That's it. Carry the stillness into your day.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="companion-section" id="companion">
-    <div class="container">
-        <div class="section-label">Your companion</div>
-        <h2 class="section-title">Meet your companion</h2>
-        <p class="section-text">Every practice is better with a companion by your side. Choose a creature that resonates with you and watch it grow as your practice deepens.</p>
-
-        <div class="companion-details">
-            <div class="companion-detail">
-                <h3>Four elemental companions</h3>
-                <p>Choose from Phoenix, Bear, Koi, or Owl. Each one reflects a different energy: fire, earth, water, or air.</p>
-            </div>
-            <div class="companion-detail">
-                <h3>They grow with you</h3>
-                <p>Watch your companion evolve from egg to wise creature as your practice deepens. Five stages of growth that mirror your own journey.</p>
-            </div>
-            <div class="companion-detail">
-                <h3>Hand-painted in watercolour</h3>
-                <p>Every stage of every creature is an original watercolour illustration. No stock art, no generic icons. Just warmth and craft.</p>
-            </div>
-        </div>
-    </div>
+<!-- QUOTE -->
+<section class="heart-section">
+    <blockquote style="white-space: nowrap;">"Some apps track gratitude. Stillpoint helps you feel it."</blockquote>
 </section>
 
+<!-- FEATURES -->
 <section class="features" id="features">
     <div class="container">
-        <div class="section-label">Features</div>
+        <div class="section-label">What makes it different</div>
         <h2 class="section-title">Simple by design</h2>
-        <p class="section-text">Stillpoint isn't trying to be everything. It does one thing well: a daily practice that builds over time.</p>
 
         <div class="feature-grid">
             <div class="feature">
-                <h3>Screen lock</h3>
-                <p>Opt in to have your phone gently pause at your daily reflection time. You choose when. You can always override.</p>
+                <h3>AI that remembers your week</h3>
+                <p>Your reflection isn't generic. It notices patterns, names what shifted, and sits with what's hard.</p>
             </div>
             <div class="feature">
-                <h3>AI affirmations</h3>
-                <p>Not generic quotes. Personalised affirmations crafted from your actual gratitude entries and life context.</p>
+                <h3>A companion that grows</h3>
+                <p>Five stages of evolution. Your creature responds to how you arrive and grows as your practice deepens.</p>
             </div>
             <div class="feature">
-                <h3>Companion creature</h3>
-                <p>A gentle watercolour companion that grows with your streak. Hand-painted illustrations in a warm, layered watercolour style that feels alive.</p>
-            </div>
-            <div class="feature">
-                <h3>Four elements</h3>
-                <p>Choose your element — fire, earth, water, or air — and discover a companion that reflects your energy.</p>
-            </div>
-            <div class="feature">
-                <h3>Meditation timer</h3>
-                <p>A clean, simple timer with singing bowl sounds. No courses. No clutter. Just silence when you need it.</p>
+                <h3>Every session is a ritual</h3>
+                <p>Breathing pauses, singing bowls, sentence-by-sentence reveals. The moment is protected.</p>
             </div>
             <div class="feature">
                 <h3>Emotion check-in</h3>
-                <p>A quick emotional pulse before and after each session, helping you see how reflection shifts your state.</p>
+                <p>Based on the Yale Mood Meter. See how your inner weather shifts over time.</p>
             </div>
             <div class="feature">
-                <h3>History & streaks</h3>
-                <p>Look back on your journey with a calendar view. See patterns in your gratitude and growth over months.</p>
+                <h3>Meditation timer</h3>
+                <p>Ambient sounds, singing bowl, clean timer. No courses. Just silence when you need it.</p>
+            </div>
+            <div class="feature">
+                <h3>Gentle screen lock</h3>
+                <p>Opt in to have your phone pause at your daily time. You choose when. You can always override.</p>
             </div>
         </div>
     </div>
 </section>
 
+<!-- PRICING -->
 <section class="pricing-section" id="pricing">
     <div class="container">
         <div class="section-label">Pricing</div>
         <h2 class="section-title">Choose what feels right</h2>
-        <p class="section-text">Your wellbeing matters more than a payment. Stillpoint is built by one person with no investors and no ads.</p>
+        <p class="section-text" style="white-space: nowrap;">Your first four sessions are completely free. After that, choose a plan that works for you.</p>
 
         <div class="pricing-grid">
             <div class="pricing-card">
@@ -537,48 +583,26 @@
                 <div class="pricing-tier">Support</div>
                 <div class="pricing-price">$12.99</div>
                 <div class="pricing-period">/month</div>
-                <p class="pricing-desc">Support Stillpoint's development</p>
+                <p class="pricing-desc">Support Stillpoint</p>
             </div>
         </div>
 
         <div class="pricing-note">
-            Can't afford a subscription? Apply for a bursary — 60 days of full access, no judgement.
+            <strong>Can't afford a subscription?</strong> Apply for a bursary. 60 days of full access, no questions asked about your circumstances.
         </div>
     </div>
 </section>
 
-<section class="privacy-section" id="privacy">
-    <div class="container">
-        <div class="section-label">Privacy</div>
-        <h2 class="section-title">Your thoughts stay yours</h2>
-        <p class="section-text">Stillpoint is built local-first. Your journal entries are stored on your device, encrypted by iOS Data Protection. We don't have accounts, we don't run ads, and we don't sell data.</p>
-
-        <div class="privacy-points">
-            <div class="privacy-point">
-                <h3>Local-first storage</h3>
-                <p>All entries are stored on-device with iOS encryption. No cloud sync, no server-side storage of personal reflections.</p>
-            </div>
-            <div class="privacy-point">
-                <h3>No account required</h3>
-                <p>Start immediately. No email, no sign-up, no tracking. Your practice is between you and your phone.</p>
-            </div>
-            <div class="privacy-point">
-                <h3>No ads, ever</h3>
-                <p>Stillpoint is supported by an optional premium subscription. Your attention is never the product.</p>
-            </div>
-            <div class="privacy-point">
-                <h3>Self-control, not surveillance</h3>
-                <p>The screen lock uses Apple's Screen Time API with individual authorisation. You opt in, you control it, you can disable it anytime.</p>
-            </div>
-        </div>
-    </div>
+<!-- BUILT BY -->
+<section class="built-by">
+    <p>Built by one person. No investors, no ads, no data sold. Ever.</p>
 </section>
 
 <footer>
     <div class="footer-links">
         <a href="/privacy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Service</a>
-        <a href="mailto:support@stillpoint.tools">Contact</a>
+        <a href="mailto:hello@stillpoint.tools">Contact</a>
     </div>
     <p>&copy; 2026 Stillpoint. All rights reserved.</p>
 </footer>
