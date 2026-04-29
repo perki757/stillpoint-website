@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — Stillpoint</title>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#FAF6F1">
+    <meta property="og:title" content="Privacy Policy — Stillpoint">
+    <meta property="og:description" content="Your journal entries stay on your device. We don't have user accounts. We don't run ads. We don't sell or share your personal data.">
+    <meta property="og:image" content="https://stillpoint.tools/og-image.png">
+    <meta property="og:url" content="https://stillpoint.tools/privacy.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -93,7 +101,7 @@
 
 <div class="content">
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: 30 March 2026</p>
+    <p class="last-updated">Last updated: 29 April 2026</p>
 
     <p>Stillpoint is built with privacy at its core. This policy explains what data we collect, how we use it, and the choices you have.</p>
 
@@ -104,25 +112,27 @@
     <p>The following data is created and stored locally on your iPhone, protected by iOS Data Protection encryption:</p>
     <ul>
         <li>Gratitude and achievement entries</li>
-        <li>AI-generated affirmations</li>
+        <li>AI-generated reflections</li>
         <li>Emotion check-in responses</li>
-        <li>Onboarding preferences (name, tone, reflection time, chosen creature)</li>
+        <li>Self-discovery prompt responses</li>
+        <li>Onboarding preferences (name, tone, reflection time, chosen companion)</li>
         <li>Session history and streak data</li>
         <li>Meditation session records</li>
     </ul>
     <p>This data is not uploaded to any server and is not accessible to us. You can export or delete all your data at any time from the app's Settings.</p>
+    <p>Self-discovery prompt responses (such as "What do you think shifted?") are stored only on your device. They are never sent to our servers and are never used to train any AI model. If you delete the app or your device, these responses are gone with it.</p>
 
     <h2>Data sent to our servers</h2>
-    <p>If you have premium access, your gratitude entries and onboarding context are sent to a Firebase Cloud Function proxy, which forwards the request to Anthropic's Claude API to generate personalised AI affirmations. This data is:</p>
+    <p>If you have premium access, your gratitude entries and onboarding context are sent to a Firebase Cloud Function proxy, which forwards the request to Anthropic's Claude API to generate personalised AI reflections. This data is:</p>
     <ul>
         <li>Transmitted over HTTPS encryption</li>
-        <li>Processed in real time by Anthropic's Claude API to generate your affirmation</li>
-        <li>Not stored on our servers or by Anthropic after the affirmation is generated</li>
+        <li>Processed in real time by Anthropic's Claude API to generate your reflection</li>
+        <li>Not stored on our servers or by Anthropic after the reflection is generated</li>
         <li>Not used to train AI models</li>
-        <li>Not shared with any third party beyond Anthropic for the purpose of generating your affirmation</li>
+        <li>Not shared with any third party beyond Anthropic for the purpose of generating your reflection</li>
     </ul>
     <p>Our Firebase Cloud Function proxy does not log or store any user data. It forwards the request to Anthropic's API and returns the response directly to the app.</p>
-    <p>Free users receive pre-written affirmations and no data is sent to our servers.</p>
+    <p>Free users receive pre-written reflections and no data is sent to our servers.</p>
 
     <h2>Screen Time API</h2>
     <p>Stillpoint uses Apple's Screen Time API (FamilyControls framework) with individual authorisation. This means:</p>
@@ -163,7 +173,7 @@
     <p>All three tiers provide identical premium features. The different price points exist so you can choose what feels right for you. We do not collect or store your payment information. Subscription management and billing are governed by Apple's terms.</p>
 
     <h2>Children's privacy</h2>
-    <p>Stillpoint is designed to be suitable for all ages. The app stores data locally on the user's device and does not require an account or collect personal information beyond what the user enters into their own journal. Parents and guardians can review or delete all data at any time using the Export and Delete features in Settings.</p>
+    <p>Stillpoint is suitable for users aged 13 and over. The app stores data locally on the user's device and does not require an account. Users under 16 in the European Economic Area or the United Kingdom should obtain parental or guardian consent before using the app, in accordance with GDPR. Parents and guardians can review or delete a user's data at any time using the Export and Delete features in Settings.</p>
 
     <h2>Data export and deletion</h2>
     <p>You can export all your data as a JSON file or permanently delete all data from within the app's Settings screen. Since data is stored locally, deleting the app also removes all data.</p>
@@ -176,10 +186,10 @@
     <p>The data controller for Stillpoint is Will Perkins, operating as a sole trader based in England. For data protection enquiries, contact <a href="mailto:hello@stillpoint.tools">hello@stillpoint.tools</a>.</p>
 
     <h2>Third-party data processors</h2>
-    <p>When you use premium AI affirmations, your session data is processed by:</p>
+    <p>When you use premium AI reflections, your session data is processed by:</p>
     <ul>
         <li><strong>Google Cloud (Firebase Cloud Functions)</strong> — routes requests between the app and the AI provider. Does not log or store user data.</li>
-        <li><strong>Anthropic</strong> — provides the Claude AI model used to generate affirmations. Anthropic does not store API inputs or outputs by default and does not use them for model training. See <a href="https://www.anthropic.com/privacy">Anthropic's privacy policy</a>.</li>
+        <li><strong>Anthropic</strong> — provides the Claude AI model used to generate reflections. Anthropic does not store API inputs or outputs by default and does not use them for model training. See <a href="https://www.anthropic.com/privacy">Anthropic's privacy policy</a>.</li>
         <li><strong>Google (Firebase Analytics &amp; Crashlytics)</strong> — collects anonymous usage and crash data. Does not receive your journal entries or personal data. See <a href="https://firebase.google.com/support/privacy">Firebase privacy documentation</a>.</li>
     </ul>
     <p>No other third parties receive your personal data.</p>

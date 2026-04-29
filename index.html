@@ -4,33 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stillpoint — Daily gratitude. Gentle growth.</title>
-    <meta name="description" content="A daily gratitude practice with a living companion and AI reflections that remember your week. Three minutes of presence. Priced so everyone can access it.">
+    <meta name="description" content="A daily gratitude practice with a living companion and AI reflections that remember your week. Two minutes of presence. Priced so everyone can access it.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#1C1917">
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, Slack, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stillpoint.tools/">
+    <meta property="og:title" content="Stillpoint — Daily gratitude. Gentle growth.">
+    <meta property="og:description" content="A daily gratitude practice with a living companion and AI reflections that remember your week. Two minutes of presence.">
+    <meta property="og:image" content="https://stillpoint.tools/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Stillpoint">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stillpoint — Daily gratitude. Gentle growth.">
+    <meta name="twitter:description" content="A daily gratitude practice with a living companion and AI reflections that remember your week. Two minutes of presence.">
+    <meta name="twitter:image" content="https://stillpoint.tools/og-image.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --warm-bg: #FAF6F1;
-            --warm-surface: #F3EDE6;
-            --dark-bg: #1A1A20;
+            --font-ui: 'Nunito', -apple-system, sans-serif;
+            --font-sacred: 'Lora', Georgia, serif;
+            --warm-bg: #F7F5F1;
+            --warm-surface: #F2F0E3;
+            --dark-bg: #1C1917;
+            --dark-surface: #292524;
             --gold: #C4956A;
             --gold-light: #D4A97A;
-            --text-dark: #3A3632;
-            --text-muted: #8A8078;
-            --text-light: rgba(255, 255, 255, 0.85);
+            --text-dark: #2C2520;
+            --text-muted: #7A6E62;
+            --text-light: rgba(245, 240, 235, 0.85);
+            --text-light-dim: rgba(245, 240, 235, 0.5);
+            --fire: #C7782E;
+            --earth: #457040;
+            --water: #336180;
+            --air: #616B94;
+            --gratitude: #C47B8A;
             --radius: 24px;
         }
 
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Nunito', -apple-system, sans-serif;
+            font-family: var(--font-ui);
             color: var(--text-dark);
             background: var(--warm-bg);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         /* NAV */
@@ -43,21 +78,22 @@
             justify-content: space-between;
             align-items: center;
             z-index: 100;
-            background: rgba(250, 246, 241, 0.9);
+            background: rgba(28, 25, 23, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
         }
 
         .nav-brand {
+            font-family: var(--font-sacred);
             font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-dark);
+            font-weight: 400;
+            color: rgba(245, 240, 235, 0.9);
             text-decoration: none;
-            letter-spacing: -0.02em;
+            letter-spacing: 0.01em;
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: rgba(245, 240, 235, 0.5);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
@@ -88,16 +124,15 @@
             top: 30%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(ellipse at center, rgba(196, 149, 106, 0.1) 0%, transparent 70%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(ellipse at center, rgba(196, 149, 106, 0.12) 0%, transparent 70%);
             pointer-events: none;
         }
 
-        /* Breathing egg animation */
         .hero-egg {
-            width: 160px;
-            height: 160px;
+            width: 180px;
+            height: 180px;
             margin-bottom: 3rem;
             animation: breathe 4s ease-in-out infinite;
             position: relative;
@@ -108,6 +143,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+            filter: drop-shadow(0 20px 40px rgba(196, 149, 106, 0.15));
         }
 
         @keyframes breathe {
@@ -116,19 +152,21 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 700;
-            line-height: 1.15;
+            line-height: 1.1;
             letter-spacing: -0.03em;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
             max-width: 600px;
             position: relative;
             z-index: 1;
         }
 
         .hero .tagline {
-            font-size: 1.15rem;
-            font-weight: 300;
+            font-family: var(--font-sacred);
+            font-style: italic;
+            font-size: 1.2rem;
+            font-weight: 400;
             color: var(--text-light);
             max-width: 480px;
             margin-bottom: 3rem;
@@ -160,15 +198,16 @@
             position: absolute;
             bottom: 2rem;
             font-size: 0.8rem;
-            color: rgba(255,255,255,0.3);
-            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 0.15em;
+            text-transform: lowercase;
         }
 
         /* SECTIONS */
-        section { padding: 6rem 2rem; }
+        section { padding: 7rem 2rem; }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -182,128 +221,280 @@
         }
 
         .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 1.25rem;
-            line-height: 1.2;
+            line-height: 1.15;
         }
 
         .section-text {
-            font-size: 1.05rem;
+            font-family: var(--font-sacred);
+            font-style: italic;
+            font-size: 1.1rem;
             color: var(--text-muted);
             max-width: 560px;
             line-height: 1.8;
         }
 
-        /* CREATURES */
-        .creatures-section {
+        /* ==================== */
+        /* COMPANIONS           */
+        /* ==================== */
+        .companions-section {
             background: white;
             text-align: center;
+            padding: 7rem 2rem;
         }
 
-        .creatures-grid {
+        .companions-grid {
             display: flex;
             justify-content: center;
-            gap: 2.5rem;
-            margin-top: 3rem;
+            gap: 3rem;
+            margin-top: 3.5rem;
             flex-wrap: wrap;
         }
 
-        .creature-card {
+        .companion-card {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 0.75rem;
         }
 
-        .creature-card img {
-            width: 140px;
-            height: 140px;
-            object-fit: contain;
+        .companion-img-wrap {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: transform 0.3s ease;
         }
 
-        .creature-card:hover img {
-            transform: scale(1.05);
+        .companion-card:hover .companion-img-wrap {
+            transform: scale(1.06);
         }
 
-        .creature-card .name {
+        .companion-img-wrap.fire { background: radial-gradient(circle, rgba(199, 120, 46, 0.12) 0%, transparent 70%); }
+        .companion-img-wrap.earth { background: radial-gradient(circle, rgba(69, 112, 64, 0.12) 0%, transparent 70%); }
+        .companion-img-wrap.water { background: radial-gradient(circle, rgba(51, 97, 128, 0.12) 0%, transparent 70%); }
+        .companion-img-wrap.air { background: radial-gradient(circle, rgba(97, 107, 148, 0.12) 0%, transparent 70%); }
+
+        .companion-img-wrap img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
+
+        .companion-card .name {
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--text-dark);
         }
 
-        .creature-card .element {
+        .companion-card .element {
             font-size: 0.85rem;
             color: var(--text-muted);
             font-weight: 400;
         }
 
-        /* HOW IT WORKS */
-        .how-it-works { background: var(--warm-bg); }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .step {
+        /* ==================== */
+        /* EVOLUTION            */
+        /* ==================== */
+        .evolution-section {
+            background: var(--dark-bg);
+            color: white;
             text-align: center;
-            padding: 2rem 1.5rem;
+            padding: 7rem 2rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .step-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            display: block;
+        .evolution-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(196, 149, 106, 0.06) 0%, transparent 70%);
+            pointer-events: none;
         }
 
-        .step h3 {
+        .evolution-section .section-title { color: white; }
+        .evolution-section .section-text { color: var(--text-light-dim); margin: 0 auto 3rem; }
+
+        .evolution-stages {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .evo-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .evo-stage img {
+            object-fit: contain;
+            filter: drop-shadow(0 8px 24px rgba(199, 120, 46, 0.15));
+            transition: transform 0.3s ease;
+        }
+
+        .evo-stage:hover img { transform: translateY(-4px); }
+
+        .evo-stage .evo-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .evo-connector {
+            display: flex;
+            align-items: center;
+            padding-bottom: 2rem;
+            color: rgba(196, 149, 106, 0.3);
+            font-size: 1.2rem;
+        }
+
+        /* ==================== */
+        /* HOW IT WORKS         */
+        /* ==================== */
+        .how-it-works {
+            background: var(--warm-bg);
+            padding: 7rem 2rem;
+        }
+
+        .how-it-works .container {
+            max-width: 1100px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+            align-items: center;
+        }
+
+        .steps-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .step-text h3 {
             font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
+            color: var(--text-dark);
         }
 
-        .step p {
+        .step-text p {
             font-size: 0.95rem;
             color: var(--text-muted);
             line-height: 1.7;
         }
 
-        /* QUOTE / HEART */
-        .heart-section {
+        .phone-mockup {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .phone-frame {
+            background: var(--dark-bg);
+            border-radius: 36px;
+            padding: 10px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0,0,0,0.05);
+            max-width: 240px;
+            transition: transform 0.3s ease;
+        }
+
+        .phone-frame:hover { transform: translateY(-4px); }
+
+        .phone-frame img {
+            width: 100%;
+            border-radius: 28px;
+            display: block;
+        }
+
+        .phone-frame.tilted-left { transform: rotate(-3deg); }
+        .phone-frame.tilted-right { transform: rotate(3deg); }
+        .phone-frame.tilted-left:hover { transform: rotate(-3deg) translateY(-4px); }
+        .phone-frame.tilted-right:hover { transform: rotate(3deg) translateY(-4px); }
+
+        /* ==================== */
+        /* QUOTE                */
+        /* ==================== */
+        .quote-section {
             background: var(--dark-bg);
             color: white;
             text-align: center;
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
+            position: relative;
         }
 
-        .heart-section blockquote {
-            font-size: clamp(1.3rem, 3vw, 1.8rem);
-            font-weight: 300;
-            line-height: 1.6;
-            max-width: 600px;
+        .quote-section blockquote {
+            font-family: var(--font-sacred);
+            font-size: clamp(1.4rem, 3.5vw, 2rem);
+            font-weight: 400;
+            line-height: 1.5;
+            max-width: 650px;
             margin: 0 auto;
             font-style: italic;
             color: var(--text-light);
         }
 
-        .heart-section .attribution {
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            color: var(--gold);
-            font-style: normal;
+        .quote-decoration {
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+            margin: 0 auto 2rem;
+            border-radius: 1px;
         }
 
-        /* FEATURES */
-        .features { background: var(--warm-bg); }
+        /* ==================== */
+        /* FEATURES             */
+        /* ==================== */
+        .features {
+            background: var(--warm-bg);
+            padding: 7rem 2rem;
+        }
 
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-top: 3rem;
         }
@@ -312,12 +503,37 @@
             padding: 2rem;
             border-radius: 20px;
             background: white;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
+
+        .feature:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon.gold { background: rgba(196, 149, 106, 0.12); color: var(--gold); }
+        .feature-icon.rose { background: rgba(196, 123, 138, 0.12); color: var(--gratitude); }
+        .feature-icon.earth { background: rgba(69, 112, 64, 0.12); color: var(--earth); }
+        .feature-icon.water { background: rgba(51, 97, 128, 0.12); color: var(--water); }
+        .feature-icon.air { background: rgba(97, 107, 148, 0.12); color: var(--air); }
+        .feature-icon.fire { background: rgba(199, 120, 46, 0.12); color: var(--fire); }
 
         .feature h3 {
             font-size: 1.05rem;
             font-weight: 700;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
         }
 
         .feature p {
@@ -326,14 +542,59 @@
             line-height: 1.7;
         }
 
-        /* PRICING */
-        .pricing-section { background: white; }
+        /* ==================== */
+        /* APP SCREENSHOTS      */
+        /* ==================== */
+        .screenshots-section {
+            background: var(--dark-bg);
+            padding: 7rem 2rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .screenshots-section .section-title { color: white; }
+        .screenshots-section .section-text { color: var(--text-light-dim); margin: 0 auto 3.5rem; }
+
+        .screenshots-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .screenshot-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .screenshot-card .phone-frame {
+            max-width: 200px;
+        }
+
+        .screenshot-card .caption {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-light-dim);
+        }
+
+        /* ==================== */
+        /* PRICING              */
+        /* ==================== */
+        .pricing-section {
+            background: white;
+            padding: 7rem 2rem;
+        }
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             margin-top: 3rem;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .pricing-card {
@@ -341,11 +602,15 @@
             border-radius: 20px;
             background: var(--warm-bg);
             text-align: center;
+            transition: transform 0.2s ease;
         }
+
+        .pricing-card:hover { transform: translateY(-2px); }
 
         .pricing-card.highlighted {
             border: 2px solid var(--gold);
             background: white;
+            box-shadow: 0 8px 32px rgba(196, 149, 106, 0.12);
         }
 
         .pricing-tier {
@@ -358,8 +623,9 @@
         }
 
         .pricing-price {
+            font-family: var(--font-sacred);
             font-size: 2.25rem;
-            font-weight: 700;
+            font-weight: 400;
             color: var(--text-dark);
         }
 
@@ -382,38 +648,51 @@
             font-size: 0.95rem;
             color: var(--text-muted);
             text-align: center;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .pricing-note strong {
-            color: var(--text-dark);
-        }
+        .pricing-note strong { color: var(--text-dark); }
 
-        /* BUILT BY */
+        /* ==================== */
+        /* BUILT BY             */
+        /* ==================== */
         .built-by {
             background: var(--warm-bg);
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
         }
 
         .built-by p {
-            font-size: 1rem;
+            font-family: var(--font-sacred);
+            font-style: italic;
+            font-size: 1.1rem;
             color: var(--text-muted);
             max-width: 500px;
             margin: 0 auto;
             line-height: 1.8;
         }
 
+        .built-by .divider {
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+            margin: 0 auto 1.5rem;
+            border-radius: 1px;
+        }
+
         /* FOOTER */
         footer {
             background: var(--dark-bg);
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.35);
             text-align: center;
             padding: 3rem 2rem;
             font-size: 0.85rem;
         }
 
         footer a {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.5);
             text-decoration: none;
             margin: 0 1rem;
             transition: color 0.2s;
@@ -422,14 +701,35 @@
         footer a:hover { color: var(--gold); }
         .footer-links { margin-bottom: 1rem; }
 
-        /* RESPONSIVE */
+        /* ==================== */
+        /* RESPONSIVE           */
+        /* ==================== */
+        @media (max-width: 900px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .phone-mockup { order: -1; }
+            .feature-grid { grid-template-columns: 1fr 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 320px; }
+        }
+
         @media (max-width: 640px) {
             nav { padding: 1rem 1.25rem; }
             .nav-links a { margin-left: 1rem; font-size: 0.8rem; }
-            section { padding: 4rem 1.5rem; }
-            .hero-egg { width: 120px; height: 120px; }
-            .creatures-grid { gap: 1.5rem; }
-            .creature-card img { width: 100px; height: 100px; }
+            section { padding: 5rem 1.5rem; }
+            .hero-egg { width: 140px; height: 140px; }
+            .companions-grid { gap: 2rem; }
+            .companion-img-wrap { width: 120px; height: 120px; }
+            .companion-img-wrap img { width: 90px; height: 90px; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .evolution-stages { gap: 0.75rem; }
+            .evo-stage img { width: 55px !important; height: 55px !important; }
+            .evo-connector { display: none; }
+            .screenshots-row { gap: 1.25rem; }
+            .screenshot-card .phone-frame { max-width: 150px; }
+            .phone-frame { max-width: 200px !important; border-radius: 24px; padding: 6px; }
+            .phone-frame img { border-radius: 20px; }
         }
     </style>
 </head>
@@ -439,12 +739,15 @@
     <a href="/" class="nav-brand">Stillpoint</a>
     <div class="nav-links">
         <a href="#companions">Companions</a>
+        <a href="#how-it-works">How it works</a>
         <a href="#pricing">Pricing</a>
         <a href="/privacy.html">Privacy</a>
     </div>
 </nav>
 
-<!-- HERO -->
+<!-- ==================== -->
+<!-- HERO                 -->
+<!-- ==================== -->
 <section class="hero">
     <div class="hero-egg">
         <img src="/images/phoenix-egg.png" alt="Stillpoint companion egg">
@@ -455,31 +758,41 @@
     <div class="hero-scroll-hint">scroll</div>
 </section>
 
-<!-- CREATURES -->
-<section class="creatures-section" id="companions">
+<!-- ==================== -->
+<!-- COMPANIONS           -->
+<!-- ==================== -->
+<section class="companions-section" id="companions">
     <div class="container">
         <div class="section-label">Your companion</div>
         <h2 class="section-title">Born from your element</h2>
         <p class="section-text" style="margin: 0 auto;">Four companions, each reflecting a different energy. Yours hatches after your first session and grows as your practice deepens.</p>
 
-        <div class="creatures-grid">
-            <div class="creature-card">
-                <img src="/images/phoenix-hatchling.png" alt="Phoenix companion">
+        <div class="companions-grid">
+            <div class="companion-card">
+                <div class="companion-img-wrap fire">
+                    <img src="/images/phoenix-hatchling.png" alt="Phoenix companion">
+                </div>
                 <span class="name">Phoenix</span>
                 <span class="element">Fire</span>
             </div>
-            <div class="creature-card">
-                <img src="/images/bear-hatchling.png" alt="Bear companion">
+            <div class="companion-card">
+                <div class="companion-img-wrap earth">
+                    <img src="/images/bear-hatchling.png" alt="Bear companion">
+                </div>
                 <span class="name">Bear</span>
                 <span class="element">Earth</span>
             </div>
-            <div class="creature-card">
-                <img src="/images/koi-hatchling.png" alt="Koi companion">
+            <div class="companion-card">
+                <div class="companion-img-wrap water">
+                    <img src="/images/koi-hatchling.png" alt="Koi companion">
+                </div>
                 <span class="name">Koi</span>
                 <span class="element">Water</span>
             </div>
-            <div class="creature-card">
-                <img src="/images/owl-hatchling.png" alt="Owl companion">
+            <div class="companion-card">
+                <div class="companion-img-wrap air">
+                    <img src="/images/owl-hatchling.png" alt="Owl companion">
+                </div>
                 <span class="name">Owl</span>
                 <span class="element">Air</span>
             </div>
@@ -487,44 +800,108 @@
     </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how-it-works" id="how-it-works">
+<!-- ==================== -->
+<!-- EVOLUTION            -->
+<!-- ==================== -->
+<section class="evolution-section">
     <div class="container">
-        <div class="section-label">How it works</div>
-        <h2 class="section-title">Three minutes of presence</h2>
-        <p class="section-text">Not another productivity app. A quiet ritual that meets you where you are.</p>
+        <div class="section-label">Growth</div>
+        <h2 class="section-title">They grow as you do</h2>
+        <p class="section-text">Five stages of evolution. Each one earned through showing up for yourself.</p>
 
-        <div class="steps">
-            <div class="step">
-                <span class="step-icon">1</span>
-                <h3>Arrive</h3>
-                <p>Check in with how you're feeling. A breathing pause settles you in.</p>
+        <div class="evolution-stages">
+            <div class="evo-stage">
+                <img src="/images/phoenix-egg.png" alt="Egg" style="width:55px; height:55px;">
+                <span class="evo-label">Egg</span>
             </div>
-            <div class="step">
-                <span class="step-icon">2</span>
-                <h3>Reflect</h3>
-                <p>What are you grateful for? What did you achieve? One thought at a time.</p>
+            <div class="evo-connector">&rarr;</div>
+            <div class="evo-stage">
+                <img src="/images/phoenix-hatchling.png" alt="Hatchling" style="width:70px; height:70px;">
+                <span class="evo-label">Hatchling</span>
             </div>
-            <div class="step">
-                <span class="step-icon">3</span>
-                <h3>Receive</h3>
-                <p>An AI reflection written from your own words. Not a quote. A mirror.</p>
+            <div class="evo-connector">&rarr;</div>
+            <div class="evo-stage">
+                <img src="/images/phoenix-young.png" alt="Young" style="width:85px; height:85px;">
+                <span class="evo-label">Young</span>
             </div>
-            <div class="step">
-                <span class="step-icon">4</span>
-                <h3>Return</h3>
-                <p>Three minutes. That's it. Carry the stillness into your day.</p>
+            <div class="evo-connector">&rarr;</div>
+            <div class="evo-stage">
+                <img src="/images/phoenix-mature.png" alt="Mature" style="width:100px; height:100px;">
+                <span class="evo-label">Mature</span>
+            </div>
+            <div class="evo-connector">&rarr;</div>
+            <div class="evo-stage">
+                <img src="/images/phoenix-wise.png" alt="Wise" style="width:115px; height:115px;">
+                <span class="evo-label">Wise</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- QUOTE -->
-<section class="heart-section">
-    <blockquote style="white-space: nowrap;">"Some apps track gratitude. Stillpoint helps you feel it."</blockquote>
+<!-- ==================== -->
+<!-- HOW IT WORKS         -->
+<!-- ==================== -->
+<section class="how-it-works" id="how-it-works">
+    <div class="container">
+        <div class="section-label">How it works</div>
+        <h2 class="section-title">Two minutes of presence</h2>
+        <p class="section-text">Not another productivity app. A quiet ritual that meets you where you are.</p>
+
+        <div class="steps-grid">
+            <div class="steps-content">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <h3>Arrive</h3>
+                        <p>Check in with how you're feeling. A breathing pause settles you in.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <h3>Reflect</h3>
+                        <p>What are you grateful for? What did you achieve? One thought at a time.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <h3>Receive</h3>
+                        <p>An AI reflection written from your own words. Not a quote. A mirror.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-text">
+                        <h3>Return</h3>
+                        <p>Two minutes. That's it. Carry the stillness into your day.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="phone-mockup">
+                <div class="phone-frame tilted-left">
+                    <img src="/images/screenshot-journaling.png" alt="Gratitude journaling screen">
+                </div>
+                <div class="phone-frame tilted-right" style="margin-top: 2rem;">
+                    <img src="/images/screenshot-affirmation.png" alt="Daily reflection screen">
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- FEATURES -->
+<!-- ==================== -->
+<!-- QUOTE                -->
+<!-- ==================== -->
+<section class="quote-section">
+    <span class="quote-decoration"></span>
+    <blockquote>"Some apps track gratitude. Stillpoint helps you feel it."</blockquote>
+</section>
+
+<!-- ==================== -->
+<!-- FEATURES             -->
+<!-- ==================== -->
 <section class="features" id="features">
     <div class="container">
         <div class="section-label">What makes it different</div>
@@ -532,26 +909,44 @@
 
         <div class="feature-grid">
             <div class="feature">
+                <div class="feature-icon gold">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 11 7 11s7-6 7-11a7 7 0 0 0-7-7z"/></svg>
+                </div>
                 <h3>AI that remembers your week</h3>
                 <p>Your reflection isn't generic. It notices patterns, names what shifted, and sits with what's hard.</p>
             </div>
             <div class="feature">
+                <div class="feature-icon earth">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="3"/><path d="M11 2v3m0 12v3m-9-9h3m12 0h3m-2.6-6.4-2.2 2.2M5.8 16.2l-2.2 2.2m0-13.8 2.2 2.2m10.4 10.4 2.2 2.2"/></svg>
+                </div>
                 <h3>A companion that grows</h3>
-                <p>Five stages of evolution. Your creature responds to how you arrive and grows as your practice deepens.</p>
+                <p>Five stages of evolution. Your companion responds to how you arrive and grows as your practice deepens.</p>
             </div>
             <div class="feature">
+                <div class="feature-icon rose">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.5-3 9-8.5 9-13a9 9 0 0 0-18 0c0 4.5 3.5 10 9 13z"/></svg>
+                </div>
                 <h3>Every session is a ritual</h3>
                 <p>Breathing pauses, singing bowls, sentence-by-sentence reveals. The moment is protected.</p>
             </div>
             <div class="feature">
+                <div class="feature-icon water">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="9"/><path d="M8 14s1.5 2 3 2 3-2 3-2"/><path d="M8 8h.01M14 8h.01"/></svg>
+                </div>
                 <h3>Emotion check-in</h3>
                 <p>Based on the Yale Mood Meter. See how your inner weather shifts over time.</p>
             </div>
             <div class="feature">
+                <div class="feature-icon air">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="9"/><path d="M11 6v6l4 2"/></svg>
+                </div>
                 <h3>Meditation timer</h3>
                 <p>Ambient sounds, singing bowl, clean timer. No courses. Just silence when you need it.</p>
             </div>
             <div class="feature">
+                <div class="feature-icon fire">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="16" height="16" rx="2"/><path d="M8 11h6m-3-3v6"/></svg>
+                </div>
                 <h3>Gentle screen lock</h3>
                 <p>Opt in to have your phone pause at your daily time. You choose when. You can always override.</p>
             </div>
@@ -559,12 +954,52 @@
     </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing-section" id="pricing">
+<!-- ==================== -->
+<!-- APP SCREENSHOTS      -->
+<!-- ==================== -->
+<section class="screenshots-section">
     <div class="container">
+        <div class="section-label">The experience</div>
+        <h2 class="section-title">A ritual, not a task</h2>
+        <p class="section-text">Every detail is designed to slow you down, just enough.</p>
+
+        <div class="screenshots-row">
+            <div class="screenshot-card">
+                <div class="phone-frame">
+                    <img src="/images/screenshot-home.png" alt="Home screen with companion">
+                </div>
+                <span class="caption">Your daily home</span>
+            </div>
+            <div class="screenshot-card">
+                <div class="phone-frame">
+                    <img src="/images/screenshot-breathing.png" alt="Breathing pause">
+                </div>
+                <span class="caption">Slow down</span>
+            </div>
+            <div class="screenshot-card">
+                <div class="phone-frame">
+                    <img src="/images/screenshot-journaling.png" alt="Gratitude journaling">
+                </div>
+                <span class="caption">Reflect</span>
+            </div>
+            <div class="screenshot-card">
+                <div class="phone-frame">
+                    <img src="/images/screenshot-affirmation.png" alt="Daily reflection">
+                </div>
+                <span class="caption">Receive</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== -->
+<!-- PRICING              -->
+<!-- ==================== -->
+<section class="pricing-section" id="pricing">
+    <div class="container" style="text-align: center;">
         <div class="section-label">Pricing</div>
         <h2 class="section-title">Choose what feels right</h2>
-        <p class="section-text" style="white-space: nowrap;">Your first four sessions are completely free. After that, choose a plan that works for you.</p>
+        <p class="section-text" style="margin: 0 auto;">Your first four sessions are completely free. After that, choose a plan that works for you.</p>
 
         <div class="pricing-grid">
             <div class="pricing-card">
@@ -593,8 +1028,11 @@
     </div>
 </section>
 
-<!-- BUILT BY -->
+<!-- ==================== -->
+<!-- BUILT BY             -->
+<!-- ==================== -->
 <section class="built-by">
+    <div class="divider"></div>
     <p>Built by one person. No investors, no ads, no data sold. Ever.</p>
 </section>
 
