@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stillpoint for Android — Join the Waitlist</title>
+    <meta name="description" content="Stillpoint is on iPhone today. Android is next. Leave your email and we will write when it arrives.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#1C1917">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stillpoint.tools/android">
+    <meta property="og:title" content="Stillpoint for Android — Join the Waitlist">
+    <meta property="og:description" content="The world goes quiet, you meet yourself, then gently return. On iPhone today. Android is next.">
+    <meta property="og:image" content="https://stillpoint.tools/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Stillpoint">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stillpoint for Android — Join the Waitlist">
+    <meta name="twitter:description" content="The world goes quiet, you meet yourself, then gently return. On iPhone today. Android is next.">
+    <meta name="twitter:image" content="https://stillpoint.tools/og-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --font-ui: 'Nunito', -apple-system, sans-serif;
+            --font-sacred: 'Lora', Georgia, serif;
+            --warm-bg: #F7F5F1;
+            --dark-bg: #1C1917;
+            --dark-surface: #292524;
+            --gold: #C4956A;
+            --gold-light: #D4A97A;
+            --text-light: rgba(245, 240, 235, 0.85);
+            --text-light-dim: rgba(245, 240, 235, 0.5);
+            --radius: 24px;
+        }
+
+        body {
+            font-family: var(--font-ui);
+            background: var(--dark-bg);
+            color: white;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1.5rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        main::before {
+            content: '';
+            position: absolute;
+            top: 28%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(ellipse at center, rgba(196, 149, 106, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .brand {
+            font-family: var(--font-sacred);
+            font-size: 1.15rem;
+            color: rgba(245, 240, 235, 0.9);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 2.5rem;
+        }
+
+        .orb {
+            width: 130px;
+            height: 130px;
+            margin-bottom: 2.5rem;
+            animation: breathe 4s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        .orb img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 40px rgba(196, 149, 106, 0.15));
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+        }
+
+        h1 {
+            font-size: clamp(1.9rem, 7vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.25rem;
+            max-width: 560px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tagline {
+            font-family: var(--font-sacred);
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 480px;
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+            text-wrap: balance;
+            position: relative;
+            z-index: 1;
+        }
+
+        .status-line {
+            font-size: 0.9rem;
+            color: var(--text-light-dim);
+            max-width: 440px;
+            margin-bottom: 2.75rem;
+            line-height: 1.6;
+            text-wrap: balance;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* FORM CARD */
+        .card {
+            width: 100%;
+            max-width: 420px;
+            background: var(--dark-surface);
+            border: 1px solid rgba(245, 240, 235, 0.07);
+            border-radius: var(--radius);
+            padding: 1.75rem 1.5rem;
+            position: relative;
+            z-index: 1;
+            text-align: left;
+        }
+
+        .field-label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.6rem;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            font-family: var(--font-ui);
+            font-size: 1rem;
+            color: white;
+            background: rgba(28, 25, 23, 0.7);
+            border: 1px solid rgba(245, 240, 235, 0.12);
+            border-radius: 14px;
+            padding: 0.9rem 1.1rem;
+            margin-bottom: 1.5rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="email"]::placeholder { color: rgba(245, 240, 235, 0.35); }
+        input[type="email"]:focus { border-color: var(--gold); }
+
+        fieldset {
+            border: none;
+            margin-bottom: 1.5rem;
+        }
+
+        legend.field-label { padding: 0; }
+
+        .question-context {
+            font-size: 0.9rem;
+            color: var(--text-light-dim);
+            line-height: 1.6;
+            margin-bottom: 0.85rem;
+        }
+
+        .pill-row {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .pill {
+            flex: 1;
+        }
+
+        .pill input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .pill span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            background: rgba(28, 25, 23, 0.7);
+            border: 1px solid rgba(245, 240, 235, 0.12);
+            border-radius: 14px;
+            padding: 0.7rem 0.25rem;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s, color 0.2s;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .pill input:checked + span {
+            border-color: var(--gold);
+            background: rgba(196, 149, 106, 0.12);
+            color: white;
+        }
+
+        .pill input:focus-visible + span {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        .optional-note {
+            font-size: 0.78rem;
+            color: rgba(245, 240, 235, 0.35);
+            margin-top: 0.6rem;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            font-family: var(--font-ui);
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            background: var(--gold);
+            border: none;
+            border-radius: var(--radius);
+            padding: 1rem 2rem;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            background: var(--gold-light);
+        }
+
+        button[type="submit"]:disabled {
+            opacity: 0.6;
+            cursor: default;
+            transform: none;
+        }
+
+        .fine-print {
+            font-size: 0.8rem;
+            color: rgba(245, 240, 235, 0.35);
+            text-align: center;
+            margin-top: 1rem;
+            line-height: 1.6;
+        }
+
+        .fine-print a {
+            color: rgba(245, 240, 235, 0.5);
+            text-decoration: none;
+        }
+
+        .fine-print a:hover { color: var(--gold); }
+
+        /* SUCCESS STATE */
+        .success {
+            display: none;
+            text-align: center;
+            padding: 1rem 0.5rem;
+        }
+
+        .success .divider {
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+            margin: 0 auto 1.5rem;
+            border-radius: 1px;
+        }
+
+        .success h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+        }
+
+        .success p {
+            font-family: var(--font-sacred);
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-light-dim);
+            line-height: 1.7;
+        }
+
+        .card.is-done form { display: none; }
+        .card.is-done .success { display: block; }
+
+        /* IPHONE LINE */
+        .iphone-line {
+            font-size: 0.85rem;
+            color: var(--text-light-dim);
+            margin-top: 2.25rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .iphone-line a {
+            color: var(--text-light);
+            text-decoration: underline;
+            text-decoration-color: rgba(196, 149, 106, 0.5);
+            text-underline-offset: 3px;
+            transition: color 0.2s;
+        }
+
+        .iphone-line a:hover { color: var(--gold); }
+
+        /* FOOTER */
+        footer {
+            color: rgba(255, 255, 255, 0.35);
+            text-align: center;
+            padding: 2rem 1.5rem 2.5rem;
+            font-size: 0.8rem;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            margin: 0 0.75rem;
+            transition: color 0.2s;
+        }
+
+        footer a:hover { color: var(--gold); }
+        .footer-links { margin-bottom: 0.75rem; }
+
+        /* LOAD REVEAL */
+        @media (prefers-reduced-motion: no-preference) {
+            .reveal {
+                opacity: 0;
+                transform: translateY(12px);
+                animation: rise 0.7s ease-out forwards;
+            }
+            .reveal:nth-child(1) { animation-delay: 0.05s; }
+            .reveal:nth-child(2) { animation-delay: 0.15s; }
+            .reveal:nth-child(3) { animation-delay: 0.3s; }
+            .reveal:nth-child(4) { animation-delay: 0.4s; }
+            .reveal:nth-child(5) { animation-delay: 0.5s; }
+            .reveal:nth-child(6) { animation-delay: 0.65s; }
+            .reveal:nth-child(7) { animation-delay: 0.75s; }
+            @keyframes rise {
+                to { opacity: 1; transform: translateY(0); }
+            }
+        }
+
+        @media (max-width: 380px) {
+            .pill-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <a href="/" class="brand reveal">Stillpoint</a>
+
+    <div class="orb reveal">
+        <img src="/images/stillpoint-logo.png" alt="Stillpoint logo">
+    </div>
+
+    <h1 class="reveal">Bring Stillpoint to Android.</h1>
+
+    <p class="tagline reveal">The world goes quiet. You meet yourself.<br>Two minutes, once a day.</p>
+
+    <p class="status-line reveal">On iPhone today. Android comes next if enough people want it. Leave your email to be counted. We will write when there is something to try.</p>
+
+    <div class="card reveal" id="waitlist-card">
+        <!--
+            Posts to Kit form 9831640. The subscriber's answer to the
+            app-blocking question lands in the custom field app_blocking,
+            which must exist on the Kit account for the value to stick.
+        -->
+        <form id="waitlist-form" action="https://app.kit.com/forms/9831640/subscriptions" method="post">
+            <label class="field-label" for="email">Email</label>
+            <input type="email" id="email" name="email_address" placeholder="you@example.com" autocomplete="email" required>
+
+            <fieldset>
+                <legend class="field-label">One question, if you like</legend>
+                <p class="question-context">On iPhone, Stillpoint can rest your other apps at your daily time until you have checked in. Would you want that on Android?</p>
+                <div class="pill-row" id="pill-row">
+                    <label class="pill">
+                        <input type="radio" name="fields[app_blocking]" value="yes">
+                        <span>Yes</span>
+                    </label>
+                    <label class="pill">
+                        <input type="radio" name="fields[app_blocking]" value="not_sure">
+                        <span>Not sure</span>
+                    </label>
+                    <label class="pill">
+                        <input type="radio" name="fields[app_blocking]" value="no">
+                        <span>No</span>
+                    </label>
+                </div>
+                <p class="optional-note">Optional. Tap again to clear.</p>
+            </fieldset>
+
+            <!-- Honeypot: hidden from people, tempting to bots -->
+            <div style="position:absolute; left:-9999px;" aria-hidden="true">
+                <input type="text" name="company" tabindex="-1" autocomplete="off">
+            </div>
+
+            <button type="submit">Join the waitlist</button>
+            <p class="fine-print">One email when it arrives. Maybe one along the way. Nothing else. <a href="/privacy.html">Privacy</a></p>
+        </form>
+
+        <div class="success" aria-live="polite">
+            <span class="divider"></span>
+            <h2>You're on the list.</h2>
+            <p>You have been counted. We will write as soon as there is something to try.</p>
+        </div>
+    </div>
+
+    <p class="iphone-line reveal">Using an iPhone? <a href="https://apps.apple.com/app/stillpoint-quiet-the-world/id6760702969">Stillpoint is on the App Store today.</a></p>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="mailto:hello@stillpoint.tools">Contact</a>
+    </div>
+    <p>&copy; 2026 Stillpoint. All rights reserved.</p>
+</footer>
+
+<script>
+    (function () {
+        var form = document.getElementById('waitlist-form');
+        var card = document.getElementById('waitlist-card');
+        var button = form.querySelector('button[type="submit"]');
+        var pillRow = document.getElementById('pill-row');
+
+        // Optional radios: a second tap on the selected pill clears it.
+        // A label tap bubbles two click events (label, then the forwarded
+        // input click) — act only on the input's own click so one tap is
+        // handled exactly once.
+        var lastChecked = null;
+        pillRow.addEventListener('click', function (e) {
+            if (e.target.tagName !== 'INPUT') return;
+            if (e.target === lastChecked) {
+                e.target.checked = false;
+                lastChecked = null;
+            } else {
+                lastChecked = e.target;
+            }
+        });
+        pillRow.addEventListener('change', function (e) {
+            if (e.target.checked) lastChecked = e.target;
+        });
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Bots that fill the honeypot get a quiet success.
+            if (form.elements.company.value) {
+                card.classList.add('is-done');
+                return;
+            }
+
+            button.disabled = true;
+            button.textContent = 'One moment';
+
+            var data = new FormData(form);
+            data.delete('company');
+
+            fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(function (res) {
+                if (res.ok) {
+                    card.classList.add('is-done');
+                } else {
+                    // Let Kit's own page explain (invalid email etc.).
+                    form.submit();
+                }
+            }).catch(function () {
+                // Network or CORS surprise: a native post is not subject
+                // to CORS and still lands the subscriber.
+                form.submit();
+            });
+        });
+    })();
+</script>
+
+</body>
+</html>
