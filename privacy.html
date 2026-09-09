@@ -101,7 +101,7 @@
 
 <div class="content">
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: 14 May 2026</p>
+    <p class="last-updated">Last updated: 9 September 2026</p>
 
     <p>Stillpoint is built with privacy at its core. This policy explains what data we collect, how we use it, and the choices you have.</p>
 
@@ -167,13 +167,17 @@
     <p>If you decline, the app falls back to an approximate clock-based schedule that adjusts the greeting and theme at preset hours.</p>
 
     <h2>Analytics</h2>
-    <p>Stillpoint uses Firebase Analytics and Firebase Crashlytics to understand how the app is used and to identify crashes. This data is anonymous and not linked to your identity. It includes:</p>
+    <p>Stillpoint uses Firebase Analytics and Firebase Crashlytics to understand how the app is used and to identify crashes. This data is not linked to your name, email, or any account, because the app has no accounts. It includes:</p>
     <ul>
-        <li>App launches, session completions, and feature usage (anonymous, aggregate)</li>
-        <li>Crash reports and performance data (anonymous)</li>
-        <li>Device type and OS version (not linked to you)</li>
+        <li>App launches, session completions, and feature usage</li>
+        <li>The feeling you select from the wheel and the energy level you place, recorded as the words and the number themselves</li>
+        <li>Which parts of the app you open, and when, including the time of day</li>
+        <li>Crash reports and performance data</li>
+        <li>Device type and OS version</li>
     </ul>
-    <p>Firebase Analytics uses a device identifier for aggregate reporting. This identifier is not linked to your personal data or journal entries. No advertising identifiers (IDFA) are collected. See <a href="https://firebase.google.com/support/privacy">Firebase's privacy documentation</a>.</p>
+    <p><strong>What we want to be straightforward about:</strong> these events are recorded against an anonymous identifier that is stable for as long as the app stays installed on your device. That means the record is not only a set of totals. It can show one anonymous device's sequence of events over time, including the feelings and energy levels chosen on different days. We use this to understand whether the app actually helps people over weeks rather than days, which is difficult to learn any other way.</p>
+    <p>What this record does <strong>not</strong> contain: anything you write. Your gratitude entries, what you did for yourself, your self-discovery answers and your reflections are never included in analytics. They stay on your device, as described above. The identifier is not linked to your name or email, we do not attempt to work out who a device belongs to, and no advertising identifiers (IDFA) are collected.</p>
+    <p>This analytics data is retained for a maximum of 14 months, after which it is deleted automatically. See <a href="https://firebase.google.com/support/privacy">Firebase's privacy documentation</a>.</p>
 
     <h2>Bursary (Community Access)</h2>
     <p>Stillpoint offers a bursary for users who cannot afford a subscription. When you apply for a bursary, we collect:</p>
@@ -212,7 +216,7 @@
     <ul>
         <li><strong>Google Cloud (Firebase Cloud Functions)</strong> — routes requests between the app and the AI provider. Does not log or store user data.</li>
         <li><strong>Anthropic</strong> — provides the Claude AI model used to generate reflections. Anthropic does not store API inputs or outputs by default and does not use them for model training. See <a href="https://www.anthropic.com/privacy">Anthropic's privacy policy</a>.</li>
-        <li><strong>Google (Firebase Analytics &amp; Crashlytics)</strong> — collects anonymous usage and crash data. Does not receive your journal entries or personal data. See <a href="https://firebase.google.com/support/privacy">Firebase privacy documentation</a>.</li>
+        <li><strong>Google (Firebase Analytics &amp; Crashlytics)</strong> — collects usage and crash data against an anonymous per-install identifier, as described under Analytics above. Does not receive your journal entries or personal data. See <a href="https://firebase.google.com/support/privacy">Firebase privacy documentation</a>.</li>
     </ul>
     <p>No other third parties receive your personal data.</p>
 
